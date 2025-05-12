@@ -1,0 +1,23 @@
+/* Estilos Globais */
+@import "~primeflex/primeflex.css";
+
+body {
+  margin: 0;
+  font-family: var(--font-family); /* PrimeNG define variáveis de fonte */
+  background-color: var(--surface-ground);
+  color: var(--text-color);
+}
+
+.toolbar {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--primary-color-text);
+  font-weight: 600;
+  padding: 0 1rem;
+}
+
+.content {
+  padding: 1rem;
+}

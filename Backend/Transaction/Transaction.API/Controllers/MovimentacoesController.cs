@@ -90,4 +90,3 @@ namespace Transaction.API.Controllers
         public TipoMovimentacao Tipo { get; set; }
     }
 }
-}
