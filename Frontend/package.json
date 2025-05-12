@@ -1,0 +1,55 @@
+{
+  "name": "frontend",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@angular/common": "~13.0.0",
+    "@angular/compiler": "~13.0.0",
+    "@angular/core": "~13.0.0",
+    "@angular/forms": "~13.0.0",
+    "@angular/platform-browser": "~13.0.0",
+    "@angular/platform-browser-dynamic": "~13.0.0",
+    "@angular/router": "~13.0.0",
+    "primeng": "^13.0.0",
+    "primeicons": "^5.0.0",
+    "primeflex": "^3.1.0",
+    "rxjs": "~6.5.5",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~13.0.0",
+    "@angular-eslint/builder": "~13.0.0",
+    "@angular-eslint/eslint-plugin": "~13.0.0",
+    "@angular-eslint/eslint-plugin-template": "~13.0.0",
+    "@angular-eslint/template-parser": "~13.0.0",
+    "@types/jasmine": "~3.10.0",
+    "@types/node": "^12.11.1",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsdoc": "^35.4.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-rxjs": "^3.1.0",
+    "jasmine-core": "~3.10.0",
+    "karma": "~6.3.4",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~2.0.1",
+    "karma-jasmine-html-reporter": "^1.5.0",
+    "prettier": "^2.4.1",
+    "ts-node": "~10.4.0",
+    "typescript": "~4.5.2"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng serve --watch",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "angularCompilerOptions": {
+    "enableIvy": true
+  }
+}

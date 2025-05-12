@@ -1,0 +1,115 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: bankingdb
+    ports:
+      - "5432:5432"
+    networks:
+      - banking-net
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672" # AMQP protocol
+      - "15672:15672" # Management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - banking-net
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - banking-net
+  people-api:
+    build:
+      context: ./Backend/People/People.API
+      dockerfile: Dockerfile
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=bankingdb;Username=postgres;Password=postgres
+      - RabbitMQ__Host=rabbitmq
+      - RabbitMQ__Username=guest
+      - RabbitMQ__Password=guest
+    depends_on:
+      - postgres
+      - rabbitmq
+    networks:
+      - banking-net
+
+  account-api:
+    build:
+      context: ./Backend/Account/Account.API
+      dockerfile: Dockerfile
+    ports:
+      - "5002:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=bankingdb;Username=postgres;Password=postgres
+      - RabbitMQ__Host=rabbitmq
+      - RabbitMQ__Username=guest
+      - RabbitMQ__Password=guest
+    depends_on:
+      - postgres
+      - rabbitmq
+    networks:
+      - banking-net
+
+  transaction-api:
+    build:
+      context: ./Backend/Transaction/Transaction.API
+      dockerfile: Dockerfile
+    ports:
+      - "5003:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=bankingdb;Username=postgres;Password=postgres
+      - RabbitMQ__Host=rabbitmq
+      - RabbitMQ__Username=guest
+      - RabbitMQ__Password=guest
+    depends_on:
+      - postgres
+      - rabbitmq
+    networks:
+      - banking-net
+  bff-api:
+    build:
+      context: ./Backend/BFF/BFF.API
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - PeopleApiUrl=http://people-api:80
+      - AccountApiUrl=http://account-api:80
+      - TransactionApiUrl=http://transaction-api:80
+      - Redis__ConnectionString=redis:6379
+    depends_on:
+      - people-api
+      - account-api
+      - transaction-api
+      - redis
+    networks:
+      - banking-net
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    networks:
+      - banking-net
+
+networks:
+  banking-net:
+    driver: bridge
