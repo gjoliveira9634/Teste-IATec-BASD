@@ -30,8 +30,8 @@ services:
       - banking-net
   people-api:
     build:
-      context: ./Backend/People/People.API
-      dockerfile: Dockerfile
+      context: ./Backend/People
+      dockerfile: People.API/Dockerfile
     ports:
       - "5001:80"
     environment:
@@ -48,8 +48,8 @@ services:
 
   account-api:
     build:
-      context: ./Backend/Account/Account.API
-      dockerfile: Dockerfile
+      context: ./Backend/Account
+      dockerfile: Account.API/Dockerfile
     ports:
       - "5002:80"
     environment:
@@ -66,8 +66,8 @@ services:
 
   transaction-api:
     build:
-      context: ./Backend/Transaction/Transaction.API
-      dockerfile: Dockerfile
+      context: ./Backend/Transaction
+      dockerfile: Transaction.API/Dockerfile
     ports:
       - "5003:80"
     environment:
@@ -98,15 +98,6 @@ services:
       - account-api
       - transaction-api
       - redis
-    networks:
-      - banking-net
-
-  frontend:
-    build:
-      context: ./Frontend
-      dockerfile: Dockerfile
-    ports:
-      - "4200:80"
     networks:
       - banking-net
 

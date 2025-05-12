@@ -113,11 +113,9 @@ namespace Account.API.Controllers
             }
         }
     }
-
     public class CriarContaRequest
     {
         public Guid UsuarioId { get; set; }
         public decimal SaldoInicial { get; set; } = 0;
     }
-}
 }
