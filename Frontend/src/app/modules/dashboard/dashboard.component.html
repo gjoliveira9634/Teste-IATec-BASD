@@ -1,0 +1,32 @@
+<div class="dashboard-container">
+	<!-- Barra de navegação superior -->
+	<header class="p-shadow-2">
+		<div class="p-d-flex p-jc-between p-ai-center p-p-3">
+			<div class="logo-area">
+				<h2>Banco IATEC</h2>
+			</div>
+			<div class="user-info p-d-flex p-ai-center">
+				<span class="p-mr-2">{{ userName }}</span>
+				<span class="p-mr-2">({{ userProfile }})</span>
+				<button
+					pButton
+					type="button"
+					icon="pi pi-power-off"
+					class="p-button-rounded p-button-danger"
+					(click)="logout()"></button>
+			</div>
+		</div>
+	</header>
+
+	<!-- Conteúdo principal -->
+	<main class="p-p-3">
+		<router-outlet></router-outlet>
+	</main>
+
+	<!-- Rodapé -->
+	<footer class="p-p-3 p-shadow-2">
+		<p class="p-text-center"
+			>© 2025 Banco IATEC - Todos os direitos reservados</p
+		>
+	</footer>
+</div>

@@ -1,0 +1,55 @@
+<div class="client-dashboard">
+	<h3>Dashboard do Cliente</h3>
+	<p>Bem-vindo(a), {{ userName }}!</p>
+
+	<!-- Funcionalidades do Cliente -->
+	<div class="p-grid">
+		<div class="p-col-12 p-md-4">
+			<p-card header="Saldo Atual">
+				<p class="saldo">{{ saldo | currency: "BRL" : "symbol" }}</p>
+				<button
+					pButton
+					type="button"
+					label="Ver Extrato"
+					(click)="verExtrato()"></button>
+			</p-card>
+		</div>
+
+		<div class="p-col-12 p-md-8">
+			<p-card header="Realizar Movimentação">
+				<!-- Formulário de Movimentação -->
+				<p>Formulário de depósito, saque, transferência aqui.</p>
+				<button
+					pButton
+					type="button"
+					label="Nova Movimentação"
+					class="p-mt-2"></button>
+			</p-card>
+		</div>
+	</div>
+
+	<!-- Extrato (poderia ser um componente separado) -->
+	<div
+		class="p-mt-4"
+		*ngIf="extrato.length > 0">
+		<h4>Extrato</h4>
+		<p-table [value]="extrato">
+			<ng-template pTemplate="header">
+				<tr>
+					<th>Data</th>
+					<th>Tipo</th>
+					<th>Valor</th>
+				</tr>
+			</ng-template>
+			<ng-template
+				pTemplate="body"
+				let-movimentacao>
+				<tr>
+					<td>{{ movimentacao.data | date: "dd/MM/yyyy HH:mm" }}</td>
+					<td>{{ movimentacao.tipo }}</td>
+					<td>{{ movimentacao.valor | currency: "BRL" : "symbol" }}</td>
+				</tr>
+			</ng-template>
+		</p-table>
+	</div>
+</div>

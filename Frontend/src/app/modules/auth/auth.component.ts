@@ -1,41 +1,42 @@
-import { HttpClient } from "@angular/common/http";
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { AuthService } from "../../core/services/auth.service"; // Será criado depois
 
 @Component({
 	selector: "app-auth",
-	template: `
-		<h2>Login</h2>
-		<form (ngSubmit)="login()">
-			<label
-				>Email:
-				<input
-					[(ngModel)]="email"
-					name="email" /></label
-			><br />
-			<label
-				>Senha:
-				<input
-					type="password"
-					[(ngModel)]="senha"
-					name="senha" /></label
-			><br />
-			<button type="submit">Entrar</button>
-		</form>
-		<p *ngIf="erro">Credenciais inválidas</p>
-	`,
+	templateUrl: "./auth.component.html",
+	styleUrls: ["./auth.component.scss"],
+	standalone: false,
 })
-export class AuthComponent {
-	email = "";
-	senha = "";
-	erro = false;
-	constructor(private http: HttpClient, private router: Router) {}
-	login() {
-		this.http
-			.post("/api/auth/login", { email: this.email, senha: this.senha })
-			.subscribe({
-				next: () => this.router.navigate(["/dashboard"]),
-				error: () => (this.erro = true),
-			});
+export class AuthComponent implements OnInit {
+	credentials = { email: "", password: "" };
+	errorMessage: string = "";
+
+	constructor(
+		private authService: AuthService,
+		private router: Router,
+	) {}
+
+	ngOnInit(): void {}
+
+	onSubmit(): void {
+		this.authService.login(this.credentials).subscribe({
+			next: (response) => {
+				// Salvar token/usuário e redirecionar
+				// Exemplo: localStorage.setItem('token', response.token);
+				// this.router.navigate(['/dashboard']);
+				console.log("Login bem-sucedido", response);
+				// Simular redirecionamento baseado no perfil (será melhorado com dados reais da API)
+				if (this.credentials.email.includes("gerente")) {
+					this.router.navigate(["/dashboard/manager"]); // Rota do gerente
+				} else {
+					this.router.navigate(["/dashboard/client"]); // Rota do cliente
+				}
+			},
+			error: (err) => {
+				this.errorMessage = "Falha no login. Verifique suas credenciais.";
+				console.error("Erro no login", err);
+			},
+		});
 	}
 }

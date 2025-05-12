@@ -1,0 +1,113 @@
+<form
+	[formGroup]="contaForm"
+	(ngSubmit)="onSubmit()">
+	<div class="p-fluid p-formgrid p-grid">
+		<div class="p-field p-col-12">
+			<label for="nomeCliente">Nome do Cliente</label>
+			<input
+				id="nomeCliente"
+				type="text"
+				pInputText
+				formControlName="nomeCliente"
+				[readonly]="isEditMode && !podeEditarNome()" />
+			<small
+				*ngIf="
+					contaForm.get('nomeCliente')?.invalid &&
+					contaForm.get('nomeCliente')?.touched
+				"
+				class="p-error">
+				Nome do cliente é obrigatório.
+			</small>
+		</div>
+
+		<div class="p-field p-col-12 p-md-6">
+			<label for="emailCliente">Email do Cliente</label>
+			<input
+				id="emailCliente"
+				type="email"
+				pInputText
+				formControlName="emailCliente"
+				[readonly]="isEditMode && !podeEditarEmail()" />
+			<small
+				*ngIf="
+					contaForm.get('emailCliente')?.invalid &&
+					contaForm.get('emailCliente')?.touched
+				"
+				class="p-error">
+				<span *ngIf="contaForm.get('emailCliente')?.errors?.['required']"
+					>Email é obrigatório.</span
+				>
+				<span *ngIf="contaForm.get('emailCliente')?.errors?.['email']"
+					>Email inválido.</span
+				>
+			</small>
+		</div>
+
+		<div
+			class="p-field p-col-12 p-md-6"
+			*ngIf="!isEditMode">
+			<!-- Campo de senha apenas na criação -->
+			<label for="senhaCliente">Senha Inicial</label>
+			<input
+				id="senhaCliente"
+				type="password"
+				pInputText
+				formControlName="senhaCliente" />
+			<small
+				*ngIf="
+					contaForm.get('senhaCliente')?.invalid &&
+					contaForm.get('senhaCliente')?.touched
+				"
+				class="p-error">
+				Senha é obrigatória (mínimo 6 caracteres).
+			</small>
+		</div>
+
+		<div class="p-field p-col-12 p-md-6">
+			<label for="saldoInicial">Saldo Inicial</label>
+			<p-inputNumber
+				id="saldoInicial"
+				formControlName="saldoInicial"
+				mode="currency"
+				currency="BRL"
+				locale="pt-BR"
+				[readonly]="isEditMode"></p-inputNumber>
+			<small
+				*ngIf="
+					contaForm.get('saldoInicial')?.invalid &&
+					contaForm.get('saldoInicial')?.touched
+				"
+				class="p-error">
+				Saldo inicial é obrigatório e deve ser positivo.
+			</small>
+		</div>
+
+		<div
+			class="p-field p-col-12 p-md-6"
+			*ngIf="isEditMode">
+			<!-- Status apenas na edição -->
+			<label for="statusConta">Status da Conta</label>
+			<p-dropdown
+				id="statusConta"
+				[options]="statusOptions"
+				formControlName="statusConta"
+				placeholder="Selecione o Status"></p-dropdown>
+		</div>
+	</div>
+
+	<div class="p-d-flex p-jc-end p-mt-4">
+		<button
+			pButton
+			type="button"
+			label="Cancelar"
+			icon="pi pi-times"
+			class="p-button-secondary p-mr-2"
+			(click)="onCancel.emit()"></button>
+		<button
+			pButton
+			type="submit"
+			[label]="isEditMode ? 'Salvar Alterações' : 'Criar Conta'"
+			icon="pi pi-check"
+			[disabled]="contaForm.invalid"></button>
+	</div>
+</form>

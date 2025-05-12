@@ -1,0 +1,33 @@
+/* Styles for DashboardComponent */
+.dashboard-container {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+header {
+	background-color: #ffffff;
+}
+
+.logo-area h2 {
+	margin: 0;
+	color: var(--primary-color);
+}
+
+.user-info {
+	font-weight: 500;
+}
+
+main {
+	flex: 1;
+	background-color: var(--surface-ground);
+}
+
+footer {
+	background-color: #ffffff;
+}
+
+footer p {
+	margin: 0;
+	color: var(--text-color-secondary);
+}

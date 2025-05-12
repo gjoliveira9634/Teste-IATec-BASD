@@ -1,36 +1,40 @@
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule, Routes } from "@angular/router";
 import { AppComponent } from "./app.component";
-import { AuthComponent } from "./modules/auth/auth.component";
-import { DashboardComponent } from "./modules/dashboard/dashboard.component";
 
-// PrimeNG Modules - Adicionar conforme necessário
-import { ButtonModule } from "primeng/button";
-import { InputTextModule } from "primeng/inputtext";
+// Módulos da Aplicação
+// AuthModule e DashboardModule são carregados via lazy loading nas rotas
 
 const routes: Routes = [
-	{ path: "login", component: AuthComponent },
-	{ path: "dashboard", component: DashboardComponent },
-	{ path: "**", redirectTo: "login" },
+	{
+		path: "login",
+		loadChildren: () =>
+			import("./modules/auth/auth.module").then((m) => m.AuthModule),
+	},
+	{
+		path: "dashboard",
+		loadChildren: () =>
+			import("./modules/dashboard/dashboard.module").then(
+				(m) => m.DashboardModule,
+			),
+	}, // Rota do dashboard adicionada
+	{ path: "", redirectTo: "/login", pathMatch: "full" },
+	{ path: "**", redirectTo: "/login" },
 ];
 
 @NgModule({
-	declarations: [AppComponent, AuthComponent, DashboardComponent],
+	declarations: [AppComponent],
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
 		HttpClientModule,
-		FormsModule,
-		ReactiveFormsModule,
 		RouterModule.forRoot(routes),
-		ButtonModule, // Exemplo PrimeNG
-		InputTextModule, // Exemplo PrimeNG
+		// AuthModule e DashboardModule não são importados diretamente aqui devido ao lazy loading
 	],
 	providers: [],
-	bootstrap: [AppComponent],
+	bootstrap: [AppComponent]
 })
 export class AppModule {}

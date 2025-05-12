@@ -1,0 +1,20 @@
+/* Styles for ManagerDashboardComponent */
+.manager-dashboard {
+	padding: 20px;
+}
+
+.status-ativa {
+	color: var(--green-600);
+	font-weight: bold;
+}
+
+.status-inativa {
+	color: var(--red-600);
+	font-weight: bold;
+}
+
+.p-tabview .p-tabview-panels {
+	padding: 1rem 0;
+}
+
+/* Adicionar mais estilos conforme necessário */
