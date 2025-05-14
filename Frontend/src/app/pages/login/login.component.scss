@@ -1,8 +1,46 @@
 .login-container {
     min-height: 100vh;
-    background-color: var(--surface-ground);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
 }
 
-:host ::ng-deep .p-card-content {
-    padding-top: 0;
+:host ::ng-deep .p-card {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px 0 rgba(44, 62, 80, 0.1);
+    margin: 0 auto;
+}
+
+:host ::ng-deep .p-card-header {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.field {
+    margin-bottom: 1.5rem;
+}
+
+:host ::ng-deep .p-button {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 0.75rem 0;
+    border-radius: 8px;
+}
+
+.p-error {
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+}
+
+@media (max-width: 600px) {
+    :host ::ng-deep .p-card {
+        max-width: 98vw;
+        padding: 0.5rem;
+    }
 }

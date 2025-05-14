@@ -1,3 +1,49 @@
+:host {
+    display: block;
+}
+
+.cliente-dashboard-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.07);
+}
+
+.cliente-dashboard-container h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.cliente-dashboard-container nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+}
+
+.cliente-dashboard-container .p-button {
+    min-width: 160px;
+}
+
+.cliente-dashboard-container .mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+@media (max-width: 600px) {
+    .cliente-dashboard-container {
+        padding: 0.5rem;
+    }
+    .cliente-dashboard-container nav {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .cliente-dashboard-container .p-button {
+        min-width: 100%;
+    }
+}
+
 :host ::ng-deep .p-panel .p-panel-content {
     padding: 0;
 }

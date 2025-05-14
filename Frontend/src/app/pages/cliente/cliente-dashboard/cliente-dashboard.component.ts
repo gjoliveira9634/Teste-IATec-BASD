@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, OnInit, inject } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
+import { firstValueFrom } from 'rxjs';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
     selector: 'app-cliente-dashboard',
@@ -10,16 +12,18 @@ import { ButtonModule } from 'primeng/button';
 })
 export class ClienteDashboardComponent implements OnInit {
     userName: string | null = null;
-
-    constructor() {}
+    private authService = inject(AuthService);
+    private router = inject(Router);
 
     ngOnInit(): void {
         this.userName = localStorage.getItem('userName');
     }
 
-    // Adicionar método de logout se necessário
-    logout() {
+    async logout() {
+        try {
+            await firstValueFrom(this.authService.logout() as any);
+        } catch {}
         localStorage.clear();
-        //redirecionar para login
+        this.router.navigate(['/login']);
     }
 }

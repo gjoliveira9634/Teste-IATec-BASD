@@ -17,5 +17,9 @@ export class AuthService {
         return this.http.post<AuthResponse>(`${this.apiUrl}/login`, credenciais);
     }
 
-    // Adicionar método para logout, refresh token, etc., se necessário
+    logout(): Observable<any> {
+        return this.http.post(`${this.apiUrl}/logout`, {});
+    }
+
+    // Adicionar método para refresh token, etc., se necessário
 }

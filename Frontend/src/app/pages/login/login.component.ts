@@ -1,5 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
@@ -12,7 +13,7 @@ import { AuthService } from '../../core/services/auth.service';
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
-    imports: [ButtonModule, CardModule, ToastModule]
+    imports: [CommonModule, ReactiveFormsModule, ButtonModule, CardModule, ToastModule]
 })
 export class LoginComponent implements OnInit {
     loginForm!: FormGroup;

@@ -1,6 +1,6 @@
 <div class="login-container flex justify-content-center align-items-center">
     <p-card header="Login - BASD" styleClass="w-full max-w-md">
-        <form (ngSubmit)="onSubmit()">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="field">
                 <label for="email">Email</label>
                 <input id="email" type="email" pInputText formControlName="email" class="w-full" />
@@ -17,4 +17,4 @@
         </form>
     </p-card>
 </div>
-<p-toast></p-toast>
+<p-toast>aaa</p-toast>
