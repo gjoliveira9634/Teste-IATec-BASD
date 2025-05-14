@@ -1,0 +1,16 @@
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\bin\Debug\net6.0\Account.Data.deps.json
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\bin\Debug\net6.0\Account.Data.dll
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\bin\Debug\net6.0\Account.Data.pdb
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\bin\Debug\net6.0\Account.Domain.dll
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\bin\Debug\net6.0\Account.Domain.pdb
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\obj\Debug\net6.0\Account.Data.csproj.AssemblyReference.cache
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\obj\Debug\net6.0\Account.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\obj\Debug\net6.0\Account.Data.AssemblyInfoInputs.cache
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\obj\Debug\net6.0\Account.Data.AssemblyInfo.cs
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\obj\Debug\net6.0\Account.Data.csproj.CoreCompileInputs.cache
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\obj\Debug\net6.0\Account.Data.sourcelink.json
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\obj\Debug\net6.0\Account..08E1807C.Up2Date
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\obj\Debug\net6.0\Account.Data.dll
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\obj\Debug\net6.0\refint\Account.Data.dll
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\obj\Debug\net6.0\Account.Data.pdb
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Data\obj\Debug\net6.0\ref\Account.Data.dll

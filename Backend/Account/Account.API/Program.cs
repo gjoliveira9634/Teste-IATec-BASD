@@ -57,12 +57,12 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+// Documentação das rotas pelo swagger
+app.UseDeveloperExceptionPage();
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 app.UseCors();
 app.UseAuthentication();

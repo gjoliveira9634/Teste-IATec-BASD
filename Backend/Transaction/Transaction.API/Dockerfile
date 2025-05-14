@@ -23,4 +23,4 @@ RUN dotnet publish Transaction.API.csproj -c Release -o /app/publish
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
-ENTRYPOINT ["dotnet", "Transaction.API.dll"]
+ENTRYPOINT ["dotnet", "Transaction.API.dll"] 

@@ -51,12 +51,11 @@ builder.Services.AddCors(opt => opt.AddDefaultPolicy(p => p.AllowAnyOrigin().All
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+// Documentação das rotas pelo swagger
+app.UseDeveloperExceptionPage();
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();

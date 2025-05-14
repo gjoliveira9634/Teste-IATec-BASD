@@ -8,6 +8,7 @@ using System.Text;
 using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
+using System.Text.Json.Serialization; // Adicionado para JsonStringEnumConverter
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration; // Para acesso fácil ao IConfiguration
@@ -39,7 +40,11 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    }); // Configura a serialização de Enums como strings
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
@@ -83,12 +88,12 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseCors();
 app.UseAuthentication(); // Adicionar antes de UseAuthorization

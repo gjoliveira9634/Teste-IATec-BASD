@@ -1,0 +1,16 @@
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\bin\Debug\net6.0\Account.Messaging.deps.json
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\bin\Debug\net6.0\Account.Messaging.dll
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\bin\Debug\net6.0\Account.Messaging.pdb
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\bin\Debug\net6.0\Account.Domain.dll
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\bin\Debug\net6.0\Account.Domain.pdb
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\obj\Debug\net6.0\Account.Messaging.csproj.AssemblyReference.cache
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\obj\Debug\net6.0\Account.Messaging.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\obj\Debug\net6.0\Account.Messaging.AssemblyInfoInputs.cache
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\obj\Debug\net6.0\Account.Messaging.AssemblyInfo.cs
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\obj\Debug\net6.0\Account.Messaging.csproj.CoreCompileInputs.cache
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\obj\Debug\net6.0\Account.Messaging.sourcelink.json
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\obj\Debug\net6.0\Account..A9D4DD35.Up2Date
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\obj\Debug\net6.0\Account.Messaging.dll
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\obj\Debug\net6.0\refint\Account.Messaging.dll
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\obj\Debug\net6.0\Account.Messaging.pdb
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Messaging\obj\Debug\net6.0\ref\Account.Messaging.dll

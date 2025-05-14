@@ -44,14 +44,20 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// Garantir a criação do banco de dados
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.EnsureCreated();
+}
+
 // Seed data not needed
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+// Documentação das rotas pelo swagger
+app.UseDeveloperExceptionPage();
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseCors();
 app.UseAuthentication();

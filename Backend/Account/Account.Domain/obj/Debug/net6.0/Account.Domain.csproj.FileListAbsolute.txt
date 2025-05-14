@@ -1,0 +1,12 @@
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Domain\bin\Debug\net6.0\Account.Domain.deps.json
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Domain\bin\Debug\net6.0\Account.Domain.dll
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Domain\bin\Debug\net6.0\Account.Domain.pdb
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Domain\obj\Debug\net6.0\Account.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Domain\obj\Debug\net6.0\Account.Domain.AssemblyInfoInputs.cache
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Domain\obj\Debug\net6.0\Account.Domain.AssemblyInfo.cs
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Domain\obj\Debug\net6.0\Account.Domain.csproj.CoreCompileInputs.cache
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Domain\obj\Debug\net6.0\Account.Domain.sourcelink.json
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Domain\obj\Debug\net6.0\Account.Domain.dll
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Domain\obj\Debug\net6.0\refint\Account.Domain.dll
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Domain\obj\Debug\net6.0\Account.Domain.pdb
+C:\Users\gjoli\OneDrive\Área de Trabalho\teste-iatec\Backend\Account\Account.Domain\obj\Debug\net6.0\ref\Account.Domain.dll

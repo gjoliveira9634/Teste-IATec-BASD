@@ -34,12 +34,13 @@ namespace Account.API.Controllers
         [HttpGet("usuario/{usuarioId}")]
         public IActionResult GetByUsuario(Guid usuarioId)
         {
-            var contas = _db.ContasUsuarios
+            var contaIds = _db.ContasUsuarios
                 .Where(cu => cu.UsuarioId == usuarioId)
-                .Join(_db.Contas,
-                      cu => cu.ContaId,
-                      c => c.Id,
-                      (cu, c) => new { c.Id, c.Saldo, c.Status })
+                .Select(cu => cu.ContaId);
+
+            var contas = _db.Contas
+                .Where(c => contaIds.Contains(c.Id))
+                .Select(c => new { c.Id, c.Saldo, c.Status })
                 .ToList();
 
             return Ok(contas);
