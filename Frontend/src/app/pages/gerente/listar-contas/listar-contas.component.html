@@ -1,0 +1,45 @@
+<p-card header="Contas dos Clientes">
+    <p-toolbar>
+        <div class="p-toolbar-group-start">
+            <p-button label="Nova Conta" icon="pi pi-plus" styleClass="p-button-success" (click)="novaConta()"></p-button>
+        </div>
+        <div class="p-toolbar-group-end">
+            <p-button label="Atualizar" icon="pi pi-refresh" (click)="carregarContas()"></p-button>
+        </div>
+    </p-toolbar>
+
+    <p-table [value]="contas" [loading]="loading" [columns]="cols" styleClass="p-datatable-striped mt-4" responsiveLayout="scroll" [paginator]="true" [rows]="10">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns" [pSortableColumn]="col.field !== 'actions' ? col.field : undefined">
+                    {{ col.header }}
+                    <p-sortIcon *ngIf="col.field !== 'actions'" [field]="col.field"></p-sortIcon>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-conta let-columns="columns">
+            <tr>
+                <td>{{ conta.id }}</td>
+                <!-- <td>{{conta.nomeCliente}}</td> -->
+                <td>{{ conta.saldo | currency: 'BRL' }}</td>
+                <td>
+                    <p-tag [value]="conta.status" [severity]="getStatusSeverity(conta.status)"></p-tag>
+                </td>
+                <td>
+                    <p-button icon="pi pi-pencil" styleClass="p-button-rounded p-button-info mr-2" pTooltip="Editar Conta" (click)="editarConta(conta)"></p-button>
+                    <p-button icon="pi pi-dollar" styleClass="p-button-rounded p-button-success mr-2" pTooltip="Realizar Movimentação" (click)="realizarMovimentacao(conta)"></p-button>
+                    <p-button icon="pi pi-list" styleClass="p-button-rounded p-button-help mr-2" pTooltip="Ver Extrato" (click)="verExtrato(conta)"></p-button>
+                    <p-button *ngIf="conta.status === 'ATIVA'" icon="pi pi-times-circle" styleClass="p-button-rounded p-button-warning mr-2" pTooltip="Inativar Conta" (click)="inativarConta(conta)"></p-button>
+                    <p-button icon="pi pi-trash" styleClass="p-button-rounded p-button-danger" pTooltip="Excluir Conta (se sem movimentações)" (click)="excluirConta(conta)"></p-button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td [attr.colspan]="cols.length" class="text-center">Nenhuma conta encontrada.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>
+<p-toast></p-toast>
+<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>

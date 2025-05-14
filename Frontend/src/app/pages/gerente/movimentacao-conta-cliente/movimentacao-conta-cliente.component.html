@@ -1,0 +1,23 @@
+<p-card [header]="'Realizar Movimentação na Conta ' + contaId">
+    <form [formGroup]="movimentacaoForm" (ngSubmit)="onSubmit()">
+        <div class="field">
+            <label for="tipo">Tipo de Movimentação</label>
+            <p-dropdown id="tipo" [options]="tiposMovimentacao" formControlName="tipo" placeholder="Selecione o tipo" optionLabel="label" optionValue="value" styleClass="w-full"></p-dropdown>
+            <small *ngIf="movimentacaoForm.get('tipo')?.invalid && movimentacaoForm.get('tipo')?.touched" class="p-error block">Tipo é obrigatório.</small>
+        </div>
+
+        <div class="field mt-3">
+            <label for="valor">Valor</label>
+            <p-inputNumber id="valor" formControlName="valor" mode="currency" currency="BRL" locale="pt-BR" styleClass="w-full"></p-inputNumber>
+            <small *ngIf="movimentacaoForm.get('valor')?.invalid && movimentacaoForm.get('valor')?.touched" class="p-error block">Valor inválido.</small>
+        </div>
+
+        <!-- Adicionar campo para Conta Destino se for Transferência -->
+
+        <div class="mt-4 flex justify-content-end">
+            <p-button label="Voltar" icon="pi pi-arrow-left" styleClass="p-button-secondary mr-2" (click)="voltar()"></p-button>
+            <p-button label="Confirmar Movimentação" type="submit" [disabled]="movimentacaoForm.invalid"></p-button>
+        </div>
+    </form>
+</p-card>
+<p-toast></p-toast>

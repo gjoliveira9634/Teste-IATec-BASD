@@ -1,0 +1,29 @@
+<p-card header="Realizar Movimentação">
+    <form [formGroup]="movimentacaoForm" (ngSubmit)="onSubmit()">
+        <div class="field">
+            <label for="tipo">Tipo de Movimentação</label>
+            <p-dropdown id="tipo" [options]="tiposMovimentacao" formControlName="tipo" placeholder="Selecione o tipo" optionLabel="label" optionValue="value" styleClass="w-full"></p-dropdown>
+            <small *ngIf="movimentacaoForm.get('tipo')?.invalid && movimentacaoForm.get('tipo')?.touched" class="p-error block">Tipo é obrigatório.</small>
+        </div>
+
+        <div class="field mt-3">
+            <label for="valor">Valor</label>
+            <p-inputNumber id="valor" formControlName="valor" mode="currency" currency="BRL" locale="pt-BR" styleClass="w-full"></p-inputNumber>
+            <small *ngIf="movimentacaoForm.get('valor')?.invalid && movimentacaoForm.get('valor')?.touched" class="p-error block">Valor inválido.</small>
+        </div>
+
+        <!-- Adicionar campo para Conta Destino se for Transferência -->
+        <!--
+    <div class="field mt-3" *ngIf="movimentacaoForm.get('tipo')?.value === 'TRANSFERENCIA'">
+      <label for="contaDestinoId">Conta Destino (ID)</label>
+      <input id="contaDestinoId" type="text" pInputText formControlName="contaDestinoId" class="w-full" />
+      <small *ngIf="movimentacaoForm.get('contaDestinoId')?.invalid && movimentacaoForm.get('contaDestinoId')?.touched" class="p-error block">Conta destino é obrigatória.</small>
+    </div>
+    -->
+
+        <div class="mt-4">
+            <p-button label="Confirmar Movimentação" type="submit" [disabled]="movimentacaoForm.invalid"></p-button>
+        </div>
+    </form>
+</p-card>
+<p-toast></p-toast>

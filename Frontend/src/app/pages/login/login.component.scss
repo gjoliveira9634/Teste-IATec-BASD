@@ -1,0 +1,8 @@
+.login-container {
+    min-height: 100vh;
+    background-color: var(--surface-ground);
+}
+
+:host ::ng-deep .p-card-content {
+    padding-top: 0;
+}

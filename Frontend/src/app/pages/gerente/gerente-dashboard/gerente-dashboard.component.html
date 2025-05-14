@@ -1,0 +1,17 @@
+<div class="gerente-dashboard-container p-4">
+    <div class="flex justify-content-between align-items-center mb-4">
+        <h1>Dashboard do Gerente</h1>
+        <div *ngIf="userName">
+            <span>Bem-vindo(a), {{ userName }}!</span>
+            <p-button label="Logout" icon="pi pi-sign-out" styleClass="p-button-sm p-button-danger ml-2" (click)="logout()"></p-button>
+        </div>
+    </div>
+
+    <nav class="mb-4">
+        <p-button label="Listar Contas" routerLink="listar-contas" styleClass="mr-2"></p-button>
+        <p-button label="Nova Conta" routerLink="gerenciar-conta" styleClass="mr-2"></p-button>
+        <!-- Outros botões de navegação rápida podem ser adicionados aqui -->
+    </nav>
+
+    <router-outlet></router-outlet>
+</div>

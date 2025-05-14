@@ -1,0 +1,32 @@
+<p-card [header]="isEditMode ? 'Editar Conta' : 'Nova Conta Bancária'">
+    <form [formGroup]="contaForm" (ngSubmit)="onSubmit()">
+        <!-- Exemplo de campo: ID do Cliente (se necessário para criação) -->
+        <!--
+    <div class="field mb-3">
+      <label for="clienteId">ID do Cliente</label>
+      <input id="clienteId" type="text" pInputText formControlName="clienteId" class="w-full" />
+      <small *ngIf="contaForm.get('clienteId')?.invalid && contaForm.get('clienteId')?.touched" class="p-error block">ID do Cliente é obrigatório.</small>
+    </div>
+    -->
+
+        <div class="field mb-3" *ngIf="!isEditMode">
+            <label for="saldoInicial">Saldo Inicial</label>
+            <p-inputNumber id="saldoInicial" formControlName="saldoInicial" mode="currency" currency="BRL" locale="pt-BR" styleClass="w-full"></p-inputNumber>
+            <small *ngIf="contaForm.get('saldoInicial')?.invalid && contaForm.get('saldoInicial')?.touched" class="p-error block">Saldo inicial inválido.</small>
+        </div>
+
+        <div class="field mb-3">
+            <label for="status">Status da Conta</label>
+            <p-dropdown id="status" [options]="statusOptions" formControlName="status" placeholder="Selecione o status" optionLabel="label" optionValue="value" styleClass="w-full" [disabled]="!isEditMode"></p-dropdown>
+            <small *ngIf="contaForm.get('status')?.invalid && contaForm.get('status')?.touched" class="p-error block">Status é obrigatório.</small>
+        </div>
+
+        <!-- Adicionar outros campos conforme a definição da entidade Conta e requisitos -->
+
+        <div class="mt-4 flex justify-content-end">
+            <p-button label="Voltar" icon="pi pi-arrow-left" styleClass="p-button-secondary mr-2" (click)="voltar()"></p-button>
+            <p-button [label]="isEditMode ? 'Salvar Alterações' : 'Criar Conta'" type="submit" icon="pi pi-check" [disabled]="contaForm.invalid || (isEditMode && !contaForm.dirty)"></p-button>
+        </div>
+    </form>
+</p-card>
+<p-toast></p-toast>

@@ -1,0 +1,20 @@
+<div class="login-container flex justify-content-center align-items-center">
+    <p-card header="Login - BASD" styleClass="w-full max-w-md">
+        <form (ngSubmit)="onSubmit()">
+            <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" pInputText formControlName="email" class="w-full" />
+                <small *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="p-error block">Email inválido.</small>
+            </div>
+            <div class="field mt-3">
+                <label for="senha">Senha</label>
+                <input id="senha" type="password" pInputText formControlName="senha" class="w-full" />
+                <small *ngIf="loginForm.get('senha')?.invalid && loginForm.get('senha')?.touched" class="p-error block">Senha é obrigatória.</small>
+            </div>
+            <div class="mt-4">
+                <p-button label="Entrar" type="submit" styleClass="w-full" [disabled]="loginForm.invalid"></p-button>
+            </div>
+        </form>
+    </p-card>
+</div>
+<p-toast></p-toast>

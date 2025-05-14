@@ -1,0 +1,43 @@
+<p-card [header]="'Extrato da Conta ' + contaId">
+    <!--<form [formGroup]="extratoForm" (ngSubmit)="buscarExtrato()">
+        <div class="grid formgrid p-fluid">
+            <div class="field col-12 md:col-4">
+                <label for="dataInicio">Data Início</label>
+                <p-calendar id="dataInicio" formControlName="dataInicio" dateFormat="dd/mm/yy" [showIcon]="true" inputId="icon"></p-calendar>
+            </div>
+            <div class="field col-12 md:col-4">
+                <label for="dataFim">Data Fim</label>
+                <p-calendar id="dataFim" formControlName="dataFim" dateFormat="dd/mm/yy" [showIcon]="true" inputId="icon2"></p-calendar>
+            </div>
+            <div class="field col-12 md:col-2 flex align-items-end">
+                <p-button label="Buscar" type="submit" icon="pi pi-search"></p-button>
+            </div>
+            <div class="field col-12 md:col-2 flex align-items-end">
+                <p-button label="Voltar" icon="pi pi-arrow-left" styleClass="p-button-secondary" (click)="voltar()"></p-button>
+            </div>
+        </div>
+    </form>-->
+
+    <p-table [value]="movimentacoes" [loading]="loading" [columns]="cols" styleClass="p-datatable-striped mt-4" responsiveLayout="scroll">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns">{{ col.header }}</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+                <td *ngFor="let col of columns">
+                    <span *ngIf="col.field === 'data'">{{ rowData[col.field] | date: 'dd/MM/yyyy HH:mm' }}</span>
+                    <span *ngIf="col.field === 'valor'">{{ rowData[col.field] | currency: 'BRL' }}</span>
+                    <span *ngIf="col.field !== 'data' && col.field !== 'valor'">{{ rowData[col.field] }}</span>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td [attr.colspan]="cols.length" class="text-center">Nenhuma movimentação encontrada para o período.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>
+<p-toast></p-toast>

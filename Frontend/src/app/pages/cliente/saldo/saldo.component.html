@@ -1,0 +1,13 @@
+<p-card header="Meu Saldo">
+    <div *ngIf="loading" class="text-center">
+        <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+        <p>Carregando saldo...</p>
+    </div>
+    <div *ngIf="!loading && saldo !== undefined">
+        <h2>Saldo Atual: {{ saldo | currency: 'BRL' }}</h2>
+    </div>
+    <div *ngIf="!loading && saldo === undefined">
+        <p>Não foi possível obter o saldo.</p>
+    </div>
+</p-card>
+<p-toast></p-toast>
