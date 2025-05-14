@@ -1,3 +1,9 @@
 {
-	"cSpell.words": ["ASPNETCORE", "bankingdb", "postgres", "rabbitmq"]
+	"cSpell.words": [
+		"ASPNETCORE",
+		"bankingdb",
+		"basd",
+		"postgres",
+		"rabbitmq"
+	]
 }

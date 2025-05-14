@@ -1,55 +1,38 @@
 {
-  "name": "frontend",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "@angular/common": "latest",
-    "@angular/compiler": "latest",
-    "@angular/core": "latest",
-    "@angular/forms": "latest",
-    "@angular/platform-browser": "latest",
-    "@angular/platform-browser-dynamic": "latest",
-    "@angular/router": "latest",
-    "primeng": "latest",
-    "primeicons": "latest",
-    "primeflex": "latest",
-    "rxjs": "latest",
-    "tslib": "latest",
-    "zone.js": "latest"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "latest",
-    "@angular-eslint/builder": "latest",
-    "@angular-eslint/eslint-plugin": "latest",
-    "@angular-eslint/eslint-plugin-template": "latest",
-    "@angular-eslint/template-parser": "latest",
-    "@types/jasmine": "latest",
-    "@types/node": "latest",
-    "eslint": "latest",
-    "eslint-plugin-import": "latest",
-    "eslint-plugin-jsdoc": "latest",
-    "eslint-plugin-prettier": "latest",
-    "eslint-plugin-rxjs": "latest",
-    "jasmine-core": "latest",
-    "karma": "latest",
-    "karma-chrome-launcher": "latest",
-    "karma-coverage": "latest",
-    "karma-jasmine": "latest",
-    "karma-jasmine-html-reporter": "latest",
-    "prettier": "latest",
-    "ts-node": "latest",
-    "typescript": "latest"
-  },
+  "name": "angular-docker",
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng serve --watch",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
   },
-  "angularCompilerOptions": {
-    "enableIvy": true
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^17.2.4",
+    "@angular/common": "^17.2.4",
+    "@angular/compiler": "^17.2.4",
+    "@angular/core": "^17.2.4",
+    "@angular/forms": "^17.2.4",
+    "@angular/platform-browser": "^17.2.4",
+    "@angular/platform-browser-dynamic": "^17.2.4",
+    "@angular/router": "^17.2.4",
+    "rxjs": "~7.8.1",
+    "tslib": "^2.6.2",
+    "zone.js": "~0.14.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.2.3",
+    "@angular/cli": "^17.2.3",
+    "@angular/compiler-cli": "^17.2.4",
+    "@types/jasmine": "~5.1.4",
+    "jasmine-core": "~5.1.2",
+    "karma": "~6.4.3",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.1",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.3.3"
   }
 }

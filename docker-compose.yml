@@ -9,7 +9,7 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - banking-net
+      - basd
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -20,14 +20,14 @@ services:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
     networks:
-      - banking-net
+      - basd
 
   redis:
     image: redis:alpine
     ports:
       - "6379:6379"
     networks:
-      - banking-net
+      - basd
   people-api:
     build:
       context: ./Backend/People
@@ -44,7 +44,7 @@ services:
       - postgres
       - rabbitmq
     networks:
-      - banking-net
+      - basd
 
   account-api:
     build:
@@ -62,7 +62,7 @@ services:
       - postgres
       - rabbitmq
     networks:
-      - banking-net
+      - basd
 
   transaction-api:
     build:
@@ -80,7 +80,7 @@ services:
       - postgres
       - rabbitmq
     networks:
-      - banking-net
+      - basd
   bff-api:
     build:
       context: ./Backend/BFF
@@ -99,8 +99,15 @@ services:
       - transaction-api
       - redis
     networks:
-      - banking-net
+      - basd
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
 
 networks:
-  banking-net:
+  basd:
     driver: bridge
