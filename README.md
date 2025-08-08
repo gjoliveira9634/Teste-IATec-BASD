@@ -98,7 +98,7 @@ Certifique-se de ter o Docker e o Docker Compose instalados em sua máquina.
 1. **Clone o repositório:**
 
    ```bash
-   git clone <url-do-repositorio>
+   git clone https://github.com/gjoliveira9634/Teste-IATec-BASD
    cd <nome-do-diretorio-do-projeto>
    ```
 
